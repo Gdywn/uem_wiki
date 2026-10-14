@@ -157,6 +157,8 @@ Markdown 页面和 HTML-only 页面生成相同侧边栏。
 
 ## 如何贡献
 
+不熟悉 GitHub 的同学可使用独立的 [资料投稿审核 Demo](contribution-demo/README.md)；投稿进入审核后才会生成公开静态页面。
+
 1. Fork 本仓库
 2. 创建你的分支 (`git checkout -b feature/新功能`)
 3. 提交你的修改 (`git commit -m '添加新功能'`)
