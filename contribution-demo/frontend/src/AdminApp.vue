@@ -94,7 +94,7 @@ onUnmounted(() => removeEventListener('popstate', onPopState))
 
 <template>
   <div class="site-shell admin-shell">
-    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">应</span><span>应大 Wiki · 投稿管理</span></a><button v-if="authenticated" class="admin-link link-button" @click="logout">退出登录</button></header>
+    <header class="topbar"><a class="brand" href="/"><img class="brand-logo" src="/圆形logo.png" alt="" /><span>应大 Wiki · 投稿管理</span></a><button v-if="authenticated" class="admin-link link-button" @click="logout">退出登录</button></header>
     <main class="page-wrap admin-wrap">
       <section v-if="isLogin && !authenticated" class="form-card admin-login">
         <p class="section-kicker">ADMINISTRATION</p><h1>管理员登录</h1><p class="intro-copy">登录后可审核投稿、下载私有附件并管理静态发布。</p>

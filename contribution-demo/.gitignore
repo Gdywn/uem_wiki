@@ -2,3 +2,6 @@
 /data/
 /export/
 .env
+/frontend/node_modules/
+/frontend/dist/
+/src/main/resources/application-local.yml

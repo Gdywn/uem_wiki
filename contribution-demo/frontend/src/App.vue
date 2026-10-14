@@ -44,7 +44,7 @@ async function submit() {
 <template>
   <div class="site-shell">
     <header class="topbar">
-      <a class="brand" href="/" aria-label="应大 Wiki 首页"><span class="brand-mark">应</span><span>应大 Wiki</span></a>
+      <a class="brand" href="/" aria-label="应大 Wiki 首页"><img class="brand-logo" src="/圆形logo.png" alt="" /><span>应大 Wiki</span></a>
       <a class="admin-link" href="/admin/login">管理员入口 <span aria-hidden="true">↗</span></a>
     </header>
     <main class="page-wrap">
