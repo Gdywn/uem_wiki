@@ -1,0 +1,36 @@
+server:
+  address: 127.0.0.1
+  port: 8090
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: strict
+spring:
+  datasource:
+    url: jdbc:h2:mem:uemwikidemo;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema-h2.sql
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 11MB
+  thymeleaf:
+    cache: false
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+contrib:
+  upload-dir: ${UPLOAD_DIR:./data/demo-private}
+  export-dir: ${EXPORT_DIR:./export}
+  admin-user: demo
+  admin-password-hash: ${ADMIN_PASSWORD_HASH:$2a$10$4Iyg94581QO922tXUp6rT.H2ymyaWDlFhMcfSC7WXTeaqznN64mVO}
+  github-token: ''
+  github-repo: ''
+  github-branch: main
+  wiki-root: ../
