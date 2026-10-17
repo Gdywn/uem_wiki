@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS contribution (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(200) NOT NULL,
   course_name VARCHAR(200) NOT NULL,
+  major_id VARCHAR(80),
   body CLOB NOT NULL,
   author_name VARCHAR(100) NOT NULL,
   contact VARCHAR(255) NOT NULL,

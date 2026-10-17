@@ -23,7 +23,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 contrib:
   upload-dir: ${UPLOAD_DIR:./data/private-uploads}
-  export-dir: ${EXPORT_DIR:./export}
+  export-dir: ${EXPORT_DIR:${WIKI_ROOT:../}}
   admin-user: ${ADMIN_USER:admin}
   admin-password-hash: ${ADMIN_PASSWORD_HASH:}
   github-token: ${GITHUB_TOKEN:}

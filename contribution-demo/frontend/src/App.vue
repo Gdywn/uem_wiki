@@ -1,13 +1,44 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
-const form = ref({ title: '', course: '', body: '', author: '', contact: '' })
+const form = ref({ title: '', course: '', majorId: '', body: '', author: '', contact: '' })
+const collegeId = ref('')
+const colleges = ref([])
+const catalogLoading = ref(true)
+const catalogError = ref('')
 const file = ref(null)
 const fileInput = ref(null)
 const busy = ref(false)
 const result = ref(null)
 const error = ref('')
 const fileSize = computed(() => file.value ? `${(file.value.size / 1024 / 1024).toFixed(2)} MiB` : '')
+const activeColleges = computed(() => colleges.value.filter(college => college.active))
+const selectedCollege = computed(() => activeColleges.value.find(college => college.id === collegeId.value) || null)
+const availableMajors = computed(() => (selectedCollege.value?.majors || []).filter(major => major.active))
+
+async function loadCatalog() {
+  catalogLoading.value = true
+  catalogError.value = ''
+  try {
+    const response = await fetch('/api/catalog')
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok || !payload.success) throw new Error(payload.message || '分类加载失败，请稍后重试。')
+    if (!Array.isArray(payload.data?.colleges)) throw new Error('分类数据格式无效，请联系管理员。')
+    colleges.value = payload.data.colleges
+  } catch (cause) {
+    catalogError.value = cause instanceof Error ? cause.message : '分类暂时不可用，请稍后重试。'
+  } finally {
+    catalogLoading.value = false
+  }
+}
+
+function changeCollege() {
+  // 学院变化后，原专业可能不属于新学院，必须重新选择。
+  form.value.majorId = ''
+  if (selectedCollege.value?.name === '通用资料' && availableMajors.value.length === 1) {
+    form.value.majorId = availableMajors.value[0].id
+  }
+}
 
 function selectFile(event) {
   error.value = ''
@@ -23,6 +54,8 @@ function selectFile(event) {
 async function submit() {
   error.value = ''
   result.value = null
+  if (!form.value.majorId) { error.value = '请选择学院和专业。'; return }
+  if (catalogLoading.value || catalogError.value) { error.value = '分类尚未加载成功，请重试后再提交。'; return }
   const data = new FormData()
   for (const [key, value] of Object.entries(form.value)) data.append(key, value)
   if (file.value) data.append('file', file.value)
@@ -32,13 +65,16 @@ async function submit() {
     const payload = await response.json()
     if (!response.ok || !payload.success) throw new Error(payload.message || '提交失败，请稍后重试。')
     result.value = payload
-    form.value = { title: '', course: '', body: '', author: '', contact: '' }
+    form.value = { title: '', course: '', majorId: '', body: '', author: '', contact: '' }
+    collegeId.value = ''
     file.value = null
     if (fileInput.value) fileInput.value.value = ''
   } catch (cause) {
     error.value = cause instanceof Error ? cause.message : '网络暂时不可用，请稍后重试。'
   } finally { busy.value = false }
 }
+
+onMounted(loadCatalog)
 </script>
 
 <template>
@@ -56,6 +92,24 @@ async function submit() {
       <section class="form-card" aria-labelledby="form-title">
         <div class="card-heading"><div><p class="section-kicker">CONTRIBUTE</p><h2 id="form-title">资料投稿</h2></div><span class="review-note"><span class="status-dot"></span>人工审核后发布</span></div>
         <form @submit.prevent="submit">
+          <p v-if="catalogError" class="alert alert-error" role="alert">学院专业分类加载失败：{{ catalogError }} <button type="button" class="text-button" @click="loadCatalog">重试</button></p>
+          <div class="field-grid">
+            <label class="field"><span>学院 <b>*</b></span>
+              <select v-model="collegeId" required :disabled="catalogLoading || !!catalogError || !activeColleges.length" @change="changeCollege">
+                <option value="" disabled>{{ catalogLoading ? '正在加载学院…' : activeColleges.length ? '请选择学院' : '暂无可选学院' }}</option>
+                <option v-for="college in activeColleges" :key="college.id" :value="college.id">{{ college.name }}</option>
+              </select>
+              <small v-if="catalogLoading">正在读取分类目录…</small>
+              <small v-else-if="!catalogError && !activeColleges.length">当前分类目录中没有启用的学院。</small>
+            </label>
+            <label class="field"><span>专业 <b>*</b></span>
+              <select v-model="form.majorId" required :disabled="!collegeId || catalogLoading || !!catalogError || !availableMajors.length">
+                <option value="" disabled>{{ !collegeId ? '请先选择学院' : availableMajors.length ? '请选择专业' : '该学院暂无可选专业' }}</option>
+                <option v-for="major in availableMajors" :key="major.id" :value="major.id">{{ major.name }}</option>
+              </select>
+              <small v-if="collegeId && !catalogLoading && !catalogError && !availableMajors.length">该学院目录下暂时没有专业分类。</small>
+            </label>
+          </div>
           <div class="field-grid">
             <label class="field"><span>资料标题 <b>*</b></span><input v-model.trim="form.title" name="title" maxlength="200" placeholder="例如：高等数学期末复习提纲" required /></label>
             <label class="field"><span>课程名称 <b>*</b></span><input v-model.trim="form.course" name="course" maxlength="200" placeholder="填写课程全名" required /></label>
@@ -71,7 +125,7 @@ async function submit() {
           </label></div>
           <p v-if="error" class="alert alert-error" role="alert">{{ error }}</p>
           <div v-if="result" class="alert alert-success" role="status"><strong>投稿提交成功</strong><span>{{ result.message }} · 编号 {{ result.data?.id }}</span></div>
-          <div class="form-footer"><p>提交即表示你确认资料适合在校园 Wiki 公开分享。联系方式不会出现在公开页面。</p><button class="submit-button" type="submit" :disabled="busy"><span>{{ busy ? '正在提交…' : '提交资料' }}</span><span aria-hidden="true">→</span></button></div>
+          <div class="form-footer"><p>提交即表示你确认资料适合在校园 Wiki 公开分享。联系方式不会出现在公开页面。</p><button class="submit-button" type="submit" :disabled="busy || catalogLoading || !!catalogError"><span>{{ busy ? '正在提交…' : '提交资料' }}</span><span aria-hidden="true">→</span></button></div>
         </form>
       </section>
       <footer class="page-footer">应大 Wiki <span>·</span> 学生共建的校园指南</footer>

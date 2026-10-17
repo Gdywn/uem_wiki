@@ -3,6 +3,7 @@ package edu.uemwiki.contrib.controller;
 import edu.uemwiki.contrib.service.ContributionService;
 import edu.uemwiki.contrib.entity.Contribution;
 import edu.uemwiki.contrib.common.Result;
+import edu.uemwiki.contrib.service.CatalogService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,9 +19,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin")
 public class AdminApiController {
     private final ContributionService service;
+    private final CatalogService catalogService;
     @Value("${contrib.admin-user:admin}") private String adminUser;
     @Value("${contrib.admin-password-hash:}") private String passwordHash;
-    public AdminApiController(ContributionService service) { this.service = service; }
+    public AdminApiController(ContributionService service, CatalogService catalogService) { this.service = service; this.catalogService = catalogService; }
 
     @GetMapping("/session")
     public Result<?> session(HttpSession session) {
@@ -97,6 +99,7 @@ public class AdminApiController {
     }
 
     @GetMapping("/contributions/{id}/attachment")
+    // 先校验管理员会话，再从私有目录以文件流返回附件，不暴露磁盘路径。
     public ResponseEntity<?> attachment(@PathVariable long id, HttpSession session) throws IOException {
         ResponseEntity<Result<?>> denied = requireAdmin(session);
         if (denied != null) return denied;
@@ -131,7 +134,8 @@ public class AdminApiController {
         return result;
     }
     private Map<String,Object> view(Contribution c, boolean detail) {
-        Map<String,Object> m = data("id",c.id,"title",c.title,"courseName",c.courseName,"authorName",c.authorName,
+        CatalogService.MajorInfo category = catalogService.describeMajor(c.majorId);
+        Map<String,Object> m = data("id",c.id,"title",c.title,"courseName",c.courseName,"majorId",c.majorId,"collegeName",category.collegeName,"majorName",category.majorName,"authorName",c.authorName,
                 "reviewStatus",c.reviewStatus,"publishStatus",c.publishStatus,"publishError",c.publishError,
                 "createdAt",c.createdAt,"hasAttachment",c.storedFilename!=null,"originalFilename",c.originalFilename,"fileSize",c.fileSize);
         if (detail) { m.put("body",c.body); m.put("contact",c.contact); }

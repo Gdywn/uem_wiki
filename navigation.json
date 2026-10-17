@@ -234,6 +234,10 @@
       ]
     },
     {
+      "name": "学习资料库",
+      "path": "资料库/index.html"
+    },
+    {
       "name": "关于我们",
       "path": "关于我们/index.html"
     },

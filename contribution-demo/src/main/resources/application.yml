@@ -29,10 +29,10 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 contrib:
   upload-dir: ${UPLOAD_DIR:./data/demo-private}
-  export-dir: ${EXPORT_DIR:./export}
+  export-dir: ${EXPORT_DIR:${WIKI_ROOT:../}}
   admin-user: demo
   admin-password-hash: ${ADMIN_PASSWORD_HASH:$2a$10$4Iyg94581QO922tXUp6rT.H2ymyaWDlFhMcfSC7WXTeaqznN64mVO}
   github-token: ''
   github-repo: ''
   github-branch: main
-  wiki-root: ../
+  wiki-root: ${WIKI_ROOT:../}
