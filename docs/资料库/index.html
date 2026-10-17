@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>学习资料库 - 应大Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/圆形logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('uem-theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+<style data-page-style>
+.materials-home{max-width:780px;margin:75px auto 95px;padding:0 10px;font-family:inherit}
+.materials-home .eyebrow{text-align:center;font-size:11px;letter-spacing:3px;opacity:.6}
+.materials-home h1{text-align:center;font-size:38px;margin:14px 0!important;border:0!important}
+.materials-home .lead{text-align:center;opacity:.65;font-size:14px;margin:0 0 32px}
+.materials-home form{display:flex;gap:12px;align-items:center;padding:8px 9px 8px 18px;border:1px solid #9aabc780;border-radius:10px;background:transparent}
+.materials-home form:focus-within{outline:2px solid #91a9d34d}
+.materials-home .searchicon{width:20px;flex-shrink:0;opacity:.6}
+.materials-home input{font:inherit;flex:1;min-width:0;border:0;outline:0;background:transparent;color:inherit;padding:9px 0;font-size:15px}
+.materials-home button{font:inherit;background:#45689a;color:white;border:0;border-radius:6px;padding:9px 22px;cursor:pointer}
+.materials-home .hint{font-size:11px;opacity:.55;margin:10px 0}
+.materials-home .contribute{display:flex;justify-content:space-between;align-items:center;gap:18px;border-top:1px solid #9aabc740;border-bottom:1px solid #9aabc740;margin-top:32px;padding:23px 0}
+.materials-home .contribute strong{font-size:15px}.materials-home .contribute p{font-size:12px;opacity:.65;margin:5px 0 0}
+.materials-home .upload{white-space:nowrap;border:1px solid #9aabc780;border-radius:6px;padding:8px 15px;text-decoration:none!important;font-size:13px}
+.materials-home .resulthead{font-size:12px;opacity:.65;margin-top:25px}
+.materials-home .item{display:flex;align-items:flex-start;gap:15px;padding:20px 0;border-bottom:1px solid #9aabc740}
+.materials-home .badge{font-size:10px;padding:6px;border:1px solid #9aabc740;border-radius:5px;min-width:40px;text-align:center}
+.materials-home .info{flex:1;min-width:0}.materials-home .info h2{font-size:16px;margin:0 0 5px;border:0}.materials-home .info p{font-size:12px;opacity:.7;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.materials-home .meta{font-size:11px;opacity:.55;margin-top:7px}.materials-home .download{font-size:12px;white-space:nowrap}
+.materials-home .message{font-size:13px;text-align:center;opacity:.7;padding:25px 10px;border:1px dashed #9aabc740;border-radius:8px}
+.materials-home footer{text-align:center;font-size:11px;opacity:.45;margin-top:32px}.materials-home .hidden{display:none}
+.materials-home :focus-visible{outline:2px solid #8aa4ce;outline-offset:3px}
+@media(max-width:600px){.materials-home{margin:35px auto 50px}.materials-home h1{font-size:29px}.materials-home .contribute{align-items:flex-start}.materials-home .contribute p{max-width:210px}.materials-home .item{flex-wrap:wrap}.materials-home .info{min-width:140px}}
+</style>
+</head>
+<body>
+  <nav class="app-nav" id="appNav" data-shell></nav>
+  <div id="pageProgress" class="page-progress" aria-hidden="true">
+    <span></span>
+  </div>
+
+  <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="切换侧边栏">◂</button>
+  <div class="content" id="contentLayout">
+    <nav class="wiki-sidebar" id="wikiSidebar" data-shell aria-label="全站导航"></nav>
+
+    <main class="wiki-main" id="wiki-main">
+      <aside class="toc-sidebar" id="toc">
+        <div class="toc-title">目录</div>
+        <ul class="toc-list" id="tocList"></ul>
+      </aside>
+      <div class="toc-overlay" id="tocOverlay"></div>
+      <button class="toc-toggle" id="tocToggle" type="button" aria-label="打开目录">☰</button>
+
+      <div id="page-content">
+        <div class="markdown-section">
+<section class="materials-home">
+<div class="eyebrow">UEM · RESOURCE LIBRARY</div>
+<h1>学习资料库</h1>
+<p class="lead">找一份需要的资料，也留一份走过的经验。</p>
+<form id="searchForm" role="search"><svg class="searchicon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="query" type="search" aria-label="搜索学习资料" placeholder="搜索课程、资料名称或关键词" maxlength="200" autocomplete="off"></form>
+<div class="hint">搜索资料名称、课程和简介 · 无需登录即可查找</div>
+<section id="results" class="hidden" aria-live="polite" aria-label="搜索结果"></section>
+<section class="contribute"><div><strong>有值得分享的资料？</strong><p>上传笔记、习题或课件，审核通过后与大家分享。</p></div><a class="upload" id="uploadLink" href="#">＋ 投稿资料</a></section>
+<footer>由同学分享，为学习积累。</footer>
+</section>
+        <!-- /markdown-section -->
+        </div>
+      </div>
+
+      <div class="comments-section">
+        <div class="twikoo-title">评论区</div>
+        <div id="twikoo-comment"></div>
+      </div>
+    </main>
+  </div>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="返回顶部">↑</button>
+  <div id="routerStatus" class="router-status" role="status" aria-live="polite" hidden>正在加载...</div>
+
+<script data-page-script>
+(function(){
+
+// 修改此处即可接入现有项目。页面建议放在 docs/资料库/index.html。
+const CONFIG = {
+  indexUrl: '/assets/materials-index.json',
+  // 本地测试前端地址；正式部署前替换成真实投稿页地址。
+  submitUrl: 'http://127.0.0.1:5173/'
+};
+// 索引格式：数组，或 { materials: [...] }。
+// 每条可包含 id、title、courseName、description、collegeName、majorName、
+// authorName、format、downloadUrl（公开文件地址）。不包含联系方式等私有数据。
+const input=document.getElementById('query');
+const results=document.getElementById('results');
+document.getElementById('uploadLink').href=CONFIG.submitUrl;
+let indexPromise=null;
+let sequence=0;
+function safeUrl(value){try{if(typeof value!=='string'||!value.trim())return null;const u=new URL(value,location.href);return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}}
+function message(value){results.replaceChildren();const p=document.createElement('p');p.className='message';p.textContent=value;results.append(p)}
+async function loadIndex(){if(!indexPromise){indexPromise=fetch(CONFIG.indexUrl,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('index unavailable');return r.json()}).then(data=>{const list=Array.isArray(data)?data:data.materials;if(!Array.isArray(list))throw Error('invalid index');return list.filter(x=>x&&typeof x==='object')}).catch(e=>{indexPromise=null;throw e})}return indexPromise}
+function render(list){results.replaceChildren();if(!list.length){message('没有找到相关资料，换个课程名或关键词试试。');return}const head=document.createElement('div');head.className='resulthead';head.textContent='找到 '+list.length+' 份相关资料';results.append(head);for(const m of list){const row=document.createElement('article');row.className='item';const badge=document.createElement('span');badge.className='badge';badge.textContent=String(m.format||'文件').slice(0,8).toUpperCase();const info=document.createElement('div');info.className='info';const title=document.createElement('h2');title.textContent=m.title||'未命名资料';const description=document.createElement('p');description.textContent=m.description||m.desc||'';const meta=document.createElement('div');meta.className='meta';meta.textContent=[m.courseName||m.course,m.collegeName,m.majorName,m.authorName||m.author].filter(Boolean).join(' · ');info.append(title,description,meta);row.append(badge,info);const url=safeUrl(m.downloadUrl);if(url){const a=document.createElement('a');a.className='download';a.href=url;a.textContent=m.originalFilename?('下载：'+m.originalFilename+' ↗'):'下载 ↗';row.append(a)}else{const span=document.createElement('span');span.className='meta';span.textContent='暂无下载地址';row.append(span)}results.append(row)}}
+async function search(){const n=++sequence;const q=input.value.trim();if(!q){results.classList.add('hidden');results.replaceChildren();history.replaceState(null,'',location.pathname+location.hash);return}results.classList.remove('hidden');message('正在查找资料…');const u=new URL(location.href);u.searchParams.set('q',q);history.replaceState(null,'',u);try{const list=await loadIndex();if(n!==sequence)return;const terms=q.toLocaleLowerCase().split(/\s+/).filter(Boolean);render(list.filter(m=>{const text=[m.title,m.courseName,m.course,m.description,m.desc,m.collegeName,m.majorName,...(Array.isArray(m.tags)?m.tags:[])].filter(Boolean).join(' ').toLocaleLowerCase();return terms.every(t=>text.includes(t))}))}catch(e){if(n===sequence)message(location.protocol==='file:'?'请通过 Wiki 的 serve.py 打开页面，直接双击文件无法读取静态搜索清单。':'资料清单暂时无法读取。请确认 /assets/materials-index.json 已生成并发布，然后重新搜索。')}}
+document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();search()});input.addEventListener('input',()=>{if(!input.value.trim()){sequence++;results.classList.add('hidden');results.replaceChildren()}});const initial=new URLSearchParams(location.search).get('q');if(initial){input.value=initial;search()}
+
+})();
+</script>
+  <script defer src="/assets/site.js"></script>
+</body>
+</html>

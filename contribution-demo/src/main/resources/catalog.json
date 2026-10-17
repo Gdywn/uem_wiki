@@ -1,0 +1,463 @@
+{
+  "version": 1,
+  "colleges": [
+    {
+      "id": "college-36b5b2ebb2067b733d9d",
+      "name": "城市安全学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-9f1850cf05a4546dc20e",
+          "name": "安全工程",
+          "active": true
+        },
+        {
+          "id": "major-c86bc0cdfc61038377bd",
+          "name": "城市地下空间工程",
+          "active": true
+        },
+        {
+          "id": "major-c08def03b7d2711d54dc",
+          "name": "城市管理",
+          "active": true
+        },
+        {
+          "id": "major-9f3d6aabf3605a1a3684",
+          "name": "消防工程",
+          "active": true
+        },
+        {
+          "id": "major-36737c89ef88db2e5991",
+          "name": "职业卫生工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-ea637fab35e90edde86c",
+      "name": "地震工程与建筑安全学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-63d86acbf67fc3eb4b2e",
+          "name": "工程管理",
+          "active": true
+        },
+        {
+          "id": "major-6c296c29f830599ce9bc",
+          "name": "建筑环境与能源应用工程",
+          "active": true
+        },
+        {
+          "id": "major-1e6bee5df630bb3e9be5",
+          "name": "水利水电工程",
+          "active": true
+        },
+        {
+          "id": "major-c4f98ea77551f358b47a",
+          "name": "土木工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-5b0033c4d55df687a4e7",
+      "name": "地震科学与技术学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-3051038e3a043eabeb43",
+          "name": "地球物理学",
+          "active": true
+        },
+        {
+          "id": "major-ffc534d40d10104a1c86",
+          "name": "地球信息科学与技术",
+          "active": true
+        },
+        {
+          "id": "major-2b3b89f7c7c94447ec00",
+          "name": "地质学",
+          "active": true
+        },
+        {
+          "id": "major-6ef4e7bbb144e64da07f",
+          "name": "勘查技术与工程",
+          "active": true
+        },
+        {
+          "id": "major-9048d079565289acb8b9",
+          "name": "资源勘查工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-aa51096a9c6705c43b57",
+      "name": "防灾减灾工程学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-9ef6a80e2ca56aa41d80",
+          "name": "测绘工程",
+          "active": true
+        },
+        {
+          "id": "major-595ae928a661651cf991",
+          "name": "地理信息科学",
+          "active": true
+        },
+        {
+          "id": "major-4a24c771fb59d1deda8f",
+          "name": "地质工程",
+          "active": true
+        },
+        {
+          "id": "major-641fd16c51bb2d02cd92",
+          "name": "防灾减灾科学与工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-8ab877f35f5c5e0b70c1",
+      "name": "化工安全学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-cfb29f1a1d0f1478bd8c",
+          "name": "材料科学与工程",
+          "active": true
+        },
+        {
+          "id": "major-0da3e8edef08eaeb1175",
+          "name": "化工安全工程",
+          "active": true
+        },
+        {
+          "id": "major-706d5e53190388aedb26",
+          "name": "化学工程与工艺",
+          "active": true
+        },
+        {
+          "id": "major-a4c46249b1b60b1bf1c1",
+          "name": "应用化学",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-2e6049d8e177b233bf31",
+      "name": "环境与灾害治理学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-e3bb81a5d3f92091b2a4",
+          "name": "地理科学",
+          "active": true
+        },
+        {
+          "id": "major-fa341001df3ca1109fad",
+          "name": "地下水科学与工程",
+          "active": true
+        },
+        {
+          "id": "major-9fe0591b2febb5af90a9",
+          "name": "环境工程",
+          "active": true
+        },
+        {
+          "id": "major-e19fcec270cb968e1aee",
+          "name": "应用气象学",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-fc66e93bcf4778013d32",
+      "name": "计算机与信息安全学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-411e31248aac0e44debd",
+          "name": "计算机科学与技术",
+          "active": true
+        },
+        {
+          "id": "major-c23bf5027fc35fb2c74f",
+          "name": "软件工程",
+          "active": true
+        },
+        {
+          "id": "major-f461424ea8ee75d609ae",
+          "name": "数据科学与大数据技术",
+          "active": true
+        },
+        {
+          "id": "major-544a55f7a4b586a258e3",
+          "name": "网络工程",
+          "active": true
+        },
+        {
+          "id": "major-76bbfc0b958c20fd5725",
+          "name": "网络空间安全",
+          "active": true
+        },
+        {
+          "id": "major-2cec938a6a36fc22a5c7",
+          "name": "物联网工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-f4300b6f2de1d8fe03a7",
+      "name": "矿山安全学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-3fade0f3bd0df874c142",
+          "name": "安全生产监管",
+          "active": true
+        },
+        {
+          "id": "major-7f7e0a1d788d977bc68e",
+          "name": "采矿工程",
+          "active": true
+        },
+        {
+          "id": "major-b78f26f5dd7ed83229eb",
+          "name": "矿物加工工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-1c94acb173d1c00ac6a6",
+      "name": "理学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-6cc0a8d8e9f8513dbb9e",
+          "name": "信息与计算科学",
+          "active": true
+        },
+        {
+          "id": "major-8b07d19f23149f2610d5",
+          "name": "应用统计学",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-a0c9e7a99eb4a3bb1945",
+      "name": "应急国际交流学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-5026d0daca6f6fe0ae7b",
+          "name": "英语",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-c3fadd5b9657b8cf09cc",
+      "name": "应急技术与指挥学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-418e15a8a8fd1e1e8c1b",
+          "name": "应急管理",
+          "active": true
+        },
+        {
+          "id": "major-cef297b3f333f51fa8cd",
+          "name": "应急技术与管理",
+          "active": true
+        },
+        {
+          "id": "major-61f1e207bc5be5d6f507",
+          "name": "应用心理学(应急心理方向)",
+          "active": true
+        },
+        {
+          "id": "major-6d42a4ac1e42aa86eb56",
+          "name": "智慧应急",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-e6d2845b754b0b475b80",
+      "name": "应急经济与物资保障学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-ed5557620b2da5778dd7",
+          "name": "电子商务",
+          "active": true
+        },
+        {
+          "id": "major-61805da141af0d230a49",
+          "name": "工商管理",
+          "active": true
+        },
+        {
+          "id": "major-ce3a3fb0e05f4cd07a04",
+          "name": "供应链管理",
+          "active": true
+        },
+        {
+          "id": "major-79074550a29cb9931a49",
+          "name": "国际经济与贸易",
+          "active": true
+        },
+        {
+          "id": "major-f7c2483163ca0efce74d",
+          "name": "会计学",
+          "active": true
+        },
+        {
+          "id": "major-9a0ade8603a218517bac",
+          "name": "金融学",
+          "active": true
+        },
+        {
+          "id": "major-72cd3ef6c679a6d76228",
+          "name": "市场营销",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-6dd831b64d629fb3bad9",
+      "name": "应急通信与控制工程学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-023f797a89b9434a73e0",
+          "name": "测控技术与仪器",
+          "active": true
+        },
+        {
+          "id": "major-f48b8fde2d1cbd8c7ac3",
+          "name": "电子信息工程",
+          "active": true
+        },
+        {
+          "id": "major-7505fc4f031688392e44",
+          "name": "人工智能",
+          "active": true
+        },
+        {
+          "id": "major-b7cb1c9f4ad276a3f398",
+          "name": "通信工程",
+          "active": true
+        },
+        {
+          "id": "major-11e6f423f7d9f2876685",
+          "name": "信息工程",
+          "active": true
+        },
+        {
+          "id": "major-6235319c2f729f7f922d",
+          "name": "自动化",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-ef72d00641abd5b846f2",
+      "name": "应急文化传播与法学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-2829653d266bc14b5956",
+          "name": "法学",
+          "active": true
+        },
+        {
+          "id": "major-970a70213e75cfebf6cc",
+          "name": "广告学",
+          "active": true
+        },
+        {
+          "id": "major-34b69ed6ad756abe3f05",
+          "name": "汉语国际教育",
+          "active": true
+        },
+        {
+          "id": "major-87991d003c5c11ccd534",
+          "name": "汉语言文学",
+          "active": true
+        },
+        {
+          "id": "major-aa90e49b7466d36cb255",
+          "name": "网络与新媒体",
+          "active": true
+        },
+        {
+          "id": "major-9baec775b305df9d3eb3",
+          "name": "新闻学",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-ec76f136f50cd935f114",
+      "name": "应急装备学院",
+      "active": true,
+      "majors": [
+        {
+          "id": "major-f16bd70a63c166389bdd",
+          "name": "材料成型及控制工程",
+          "active": true
+        },
+        {
+          "id": "major-c6c1079125a8d05673ce",
+          "name": "产品设计",
+          "active": true
+        },
+        {
+          "id": "major-3b0344c8b62e9fbb52f1",
+          "name": "电气工程及其自动化",
+          "active": true
+        },
+        {
+          "id": "major-e30ef1282e9a5bd91edf",
+          "name": "机械电子工程",
+          "active": true
+        },
+        {
+          "id": "major-1a3db8eda2de785869d2",
+          "name": "机械设计制造及其自动化",
+          "active": true
+        },
+        {
+          "id": "major-cc4c4dbd18e27f6eddb3",
+          "name": "应急装备技术与工程",
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "college-5fb303493c3c31fef733",
+      "name": "应急救援训练中心",
+      "active": false,
+      "majors": []
+    },
+    {
+      "id": "general",
+      "name": "通用资料",
+      "active": true,
+      "majors": [
+        {
+          "id": "general-all",
+          "name": "通用",
+          "active": true
+        }
+      ]
+    }
+  ]
+}
